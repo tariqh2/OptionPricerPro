@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block body %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+
+    <!-- Display 'time_to_expiration' and option details after the form -->
+    {% if time_to_expiration and option_price %}
+        <div class="option-details">
+            <ul>
+                <li>Time to Expiration: {{ time_to_expiration|floatformat:1 }} years</li>
+                <li>Option Type: {{ option_type }}</li>
+                <li>Underlying Future: {{ underlying_future }}</li>
+                <li>Delivery Month: {{ delivery_month }}</li>
+                <li>Strike Price: ${{ strike_price|floatformat:2 }}</li>
+                <li>Option Price: ${{ option_price|floatformat:2 }}</li>
+            </ul>
+        </div>
+    {% endif %}
+
+    <form id="refreshDataForm" method="post" action="{% url 'refresh_data' %}">
+        {% csrf_token %}
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" required>
+        
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" required>
+        
+        <button type="submit">Refresh Market Data</button>
+    </form>
+    
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    
+{% endblock %}
+

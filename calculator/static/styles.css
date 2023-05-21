@@ -1,0 +1,40 @@
+body {
+    padding: 10px;
+    font-family: type-font, Arial, Roboto, Helvetica, sans-serif;
+    margin-top: 160px;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 60px; /* Adjust the width to your desired size */
+    height: auto; /* This maintains the aspect ratio of the image */
+}
+
+form {
+    background-color: #FBCE05;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.option-details {
+    background-color: #FBCE05;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid #333; /* Adjust border color as necessary */
+}
+
+.option-details ul {
+    list-style-type: none; /* Removes bullet points */
+}
+
+.option-details li {
+    margin-bottom: 10px; /* Adds space between list items */
+    border: 1px solid #333; /* Add a border to each list item */
+    padding: 5px; /* Add some padding so text isn't up against the border */
+    border-radius: 5px; /* Optionally, round the corners of the borders */
+    background-color: #fff; /* Set the background color to white */
+}
